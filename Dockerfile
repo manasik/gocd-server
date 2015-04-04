@@ -16,5 +16,6 @@ RUN dpkg -i go-server-14.4.0-1356.deb
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
 RUN mkdir /root/.ssh
 VOLUME /root/.ssh
+RUN rm -rf go-server-14.4.0-1356.deb
 
 CMD ["service", "go-server", "start"]
