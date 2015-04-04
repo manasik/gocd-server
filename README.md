@@ -13,10 +13,10 @@ The installation is as simple as downloading any other docker image.
 
 Go server stores its data at the following location
 
-/var/lib/go-server       contains the binaries and database
-/etc/go                  contains the pipeline configuration files
-/var/log/go-server       contains the server logs
-/root/.ssh               stores the ssh keys
+	/var/lib/go-server       contains the binaries and database
+	/etc/go                  contains the pipeline configuration files
+	/var/log/go-server       contains the server logs
+	/root/.ssh               stores the ssh keys
 
 This Go server data needs to be persisted. The following persists the data on the host at location you chose. 
 
