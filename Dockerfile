@@ -11,6 +11,7 @@ RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-se
 RUN apt-get -y install oracle-java8-installer
 
 RUN wget http://download.go.cd/gocd-deb/go-server-14.4.0-1356.deb
+RUN apt-get -y install git
 RUN apt-get -y install unzip
 RUN dpkg -i go-server-14.4.0-1356.deb
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
