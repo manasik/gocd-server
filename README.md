@@ -16,12 +16,10 @@ Go server stores its data at the following location
 	/var/lib/go-server       contains the binaries and database
 	/etc/go                  contains the pipeline configuration files
 	/var/log/go-server       contains the server logs
-	/root/.ssh               stores the ssh keys
 
 This Go server data needs to be persisted. The following persists the data on the host at location you chose. 
 
 	docker run -d -p 8080:8153 \ 
-	-v location-on-host:/root/.ssh \
 	-v location-on-host:/var/lib/go-server \
 	-v location-on-host:/etc/go \
 	-v location-on-host:/var/log/go-server \ 

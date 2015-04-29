@@ -15,8 +15,10 @@ RUN apt-get -y install git
 RUN apt-get -y install unzip
 RUN dpkg -i go-server-14.4.0-1356.deb
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
-RUN mkdir /root/.ssh
-VOLUME /root/.ssh
 RUN rm -rf go-server-14.4.0-1356.deb
 
+USER go
+RUN ssh-keygen -N "" -f /var/go/.ssh/id_rsa
+
+USER root
 CMD ["service", "go-server", "start"]
