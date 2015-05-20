@@ -18,7 +18,6 @@ RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
 RUN rm -rf go-server-14.4.0-1356.deb
 
 USER go
-RUN ssh-keygen -N "" -f /var/go/.ssh/id_rsa
-
-USER root
-CMD ["service", "go-server", "start"]
+ADD entrypoint.sh /opt/entrypoint.sh
+RUN sudo chmod +x /opt/entrypoint.sh
+CMD ["/opt/entrypoint.sh"]
