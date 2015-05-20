@@ -17,7 +17,8 @@ RUN dpkg -i go-server-14.4.0-1356.deb
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
 RUN rm -rf go-server-14.4.0-1356.deb
 
-USER go
 ADD entrypoint.sh /opt/entrypoint.sh
 RUN sudo chmod +x /opt/entrypoint.sh
+
+USER go
 CMD ["/opt/entrypoint.sh"]
