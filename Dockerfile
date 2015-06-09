@@ -16,9 +16,10 @@ RUN apt-get -y install unzip
 RUN dpkg -i go-server-14.4.0-1356.deb
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-server
 RUN rm -rf go-server-14.4.0-1356.deb
-
-ADD entrypoint.sh /opt/entrypoint.sh
-RUN sudo chmod +x /opt/entrypoint.sh
+RUN sudo adduser go sudo
+RUN echo %go ALL=NOPASSWD:ALL > /etc/sudoers.d/go
 
 USER go
+ADD entrypoint.sh /opt/entrypoint.sh
+RUN sudo chmod +x /opt/entrypoint.sh
 CMD ["/opt/entrypoint.sh"]
